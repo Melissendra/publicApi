@@ -8,16 +8,23 @@ fetchEmployees()
     .then(data =>createGallery(data.results));
 
 //function to create dynamically new HTML elements
-const createElements = (el, props,  value, text="") => {
+/*const createElements = (el, props,  value, text="") => {
     return $(`<${el} ${props}=${value}></${el}>`)
         .text(`${text}`);
-};
+};*/
 
-// function to lunch the gallery of 12 employees
+//function to lunch the gallery of 12 employees
 const createGallery = (allEmployees) => {
     const $gallery = $("#gallery");
     allEmployees.map(employee => {
-        const cardDiv = createElements("div", "class", "card",);
+        const cardDiv = new HtmlElements("div", "class", "card");
+        const cardImgContainer = new HtmlElements("div", "class", "card-img-container");
+        const image = new HtmlElements("img", "class", "card-img");
+        
+        cardDiv.createElements($gallery);
+        cardImgContainer.createElements(cardDiv);
+        image.createElements(cardImgContainer, "src", `${employee.picture.large}`, "alt", "profile picture");
+       /* 
         const cardImgContainer = createElements("div", "class", "card-img-container");
         const $img = createElements("img", "class", "card-img")
             .prop({
@@ -36,7 +43,7 @@ const createGallery = (allEmployees) => {
         cardDiv.append(cardInfo);
         cardInfo.append(nameInfo);
         cardInfo.append(mailInfo);
-        cardInfo.append(locationInfo);
+        cardInfo.append(locationInfo);*/
     });
 };
 
