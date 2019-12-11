@@ -18,12 +18,14 @@ const createGallery = (allEmployees) => {
     const $gallery = $("#gallery");
     allEmployees.map(employee => {
         const cardDiv = new HtmlElements("div", "class", "card");
+        const $cardDiv = $(".card")
         const cardImgContainer = new HtmlElements("div", "class", "card-img-container");
+        const $cardImageContainer = $(".card-img-container");
         const image = new HtmlElements("img", "class", "card-img");
-        
-        cardDiv.createElements($gallery);
-        cardImgContainer.createElements(cardDiv);
-        image.createElements(cardImgContainer, "src", `${employee.picture.large}`, "alt", "profile picture");
+
+        cardDiv.createElements($gallery)
+        cardImgContainer.createElements($cardDiv);
+        image.createElements($cardImageContainer);
        /* 
         const cardImgContainer = createElements("div", "class", "card-img-container");
         const $img = createElements("img", "class", "card-img")
