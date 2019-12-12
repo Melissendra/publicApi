@@ -17,16 +17,20 @@ fetchEmployees()
 const createGallery = (allEmployees) => {
     const $gallery = $("#gallery");
     allEmployees.map(employee => {
-        const cardDiv = new HtmlElements("div", "class", "card", $gallery);
+        const cardDiv = new HtmlElements("div", "class", "card");
         const $cardDiv = $(".card");
-        const cardImgContainer = new HtmlElements("div", "class", "card-img-container", $cardDiv);
+        const cardImgContainer = new HtmlElements("div", "class", "card-img-container");
         const $cardImageContainer = $(".card-img-container");
-        const image = new HtmlElements("img", "class", "card-img",$cardImageContainer);
+        const image = new HtmlElements("img", "class", "card-img",);
         const $img = $(".card-img");
 
-        cardDiv.createElements();
-        cardImgContainer.createElements();
-        image.createImages(`${employee.picture.large}`);
+        const card = cardDiv.createElements();
+        const imgContainer = cardImgContainer.createElements();
+        const img = image.createImages(`${employee.picture.large}`);
+
+        $gallery.append(card);
+        $cardDiv.append(imgContainer);
+        $cardImageContainer.append(img);
        /* 
         const cardImgContainer = createElements("div", "class", "card-img-container");
         const $img = createElements("img", "class", "card-img")

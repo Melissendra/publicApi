@@ -8,12 +8,11 @@ class HtmlElements {
     }
 
     createElements() {
-       const $el = $(`<${this.el} ${this.props}=${this.value}></${this.el}>`).text(`${this.text}`);
-       $(this.container).append($el);
+       return $(`<${this.el} ${this.props}=${this.value}></${this.el}>`).text(`${this.text}`);
+
     }
 
     createImages(url){
-        const $img = $(`<${this.el} ${this.props}=${this.value} src=${url} alt="profile picture">`);
-        $(this.container).append($img);
+        return $(`<${this.el} ${this.props}=${this.value} src=${url} alt="profile picture">`);
     }
 }
