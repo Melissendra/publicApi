@@ -1,7 +1,7 @@
 class Api{
     constructor(url){
         this.url = url;
-        this.gallery = new HtmlElements()
+        this.gallery = new Card()
     }
 
     async fetchEmployees(){
@@ -13,7 +13,7 @@ class Api{
     createGallery (allEmployee){
         const $gallery = $("#gallery");
         allEmployee.map(employee => {
-            const cardDiv = new HtmlElements("div", "class", "card");
+            const cardDiv = new Card("div", "class", "card");
             cardDiv.createElements($gallery);
         });
     }

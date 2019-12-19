@@ -1,18 +1,23 @@
-class HtmlElements {
-    constructor(el, props, value, text="", container){
+class HtmlElements{
+    constructor(el, props, container, text="") {
         this.el = el;
         this.props = props;
-        this.value = value;
+        this.container = container;
         this.text = text;
-        this.container = container
     }
 
-    createElements() {
-       return $(`<${this.el} ${this.props}=${this.value}></${this.el}>`).text(`${this.text}`);
-
+    createElements(){
+        const element = document.createElement(this.el);
+        for(let val in this.props){
+            element.setAttribute(val,this.props[val]);
+        }
+        element.textContent = this.text;
+        this.container.appendChild(element);
+        return element;
     }
 
-    createImages(url){
-        return $(`<${this.el} ${this.props}=${this.value} src=${url} alt="profile picture">`);
+    newElement(){
+        return this.createElements();
     }
+
 }
