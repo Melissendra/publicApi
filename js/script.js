@@ -19,7 +19,6 @@ const createGallery = (allEmployees) => {
             employee.location.state
         );
         newEmployee.employeesCard(index);
-
     });
 };
 
